@@ -47,7 +47,7 @@ END CATCH
 --
 --USE OperationsManager
 
-SET @tblName = 'MT_Microsoft`$SystemCenter`$ManagementGroup'
+SET @tblName = 'MT_Microsoft$SystemCenter$ManagementGroup'
 SET @colName = (SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tblName AND COLUMN_NAME LIKE 'SQLServerName_%')
 
 SET @sqlstmt = N'INSERT INTO #tmp_DBMigration SELECT TOP(1) ''' + @tblName + ''' AS TableName, ' + @colName + ' AS OldValue, NULL AS NewValue FROM ' + @tblName
@@ -60,7 +60,7 @@ exec @UseOpsMgrDB @sqlstmt
 SET @sqlstmt = N'UPDATE #tmp_DBMigration SET NewValue = (SELECT TOP(1) ' + @colName + ' FROM ' + @tblName + ') WHERE TableName = ''' + @tblName + ''''
 exec @UseOpsMgrDB @sqlstmt
 
-SET @tblName = 'MT_Microsoft`$SystemCenter`$OpsMgrDB`$AppMonitoring'
+SET @tblName = 'MT_Microsoft$SystemCenter$OpsMgrDB$AppMonitoring'
 SET @colName = (SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tblName AND COLUMN_NAME LIKE 'MainDatabaseServerName_%')
 
 SET @sqlstmt = N'INSERT INTO #tmp_DBMigration SELECT TOP(1) ''' + @tblName + ''' AS TableName, ' + @colName + ' AS OldValue, NULL AS NewValue FROM ' + @tblName
@@ -73,7 +73,7 @@ exec @UseOpsMgrDB @sqlstmt
 SET @sqlstmt = N'UPDATE #tmp_DBMigration SET NewValue = (SELECT TOP(1) ' + @colName + ' FROM ' + @tblName + ') WHERE TableName = ''' + @tblName + ''''
 exec @UseOpsMgrDB @sqlstmt
 
-SET @tblName = 'MT_Microsoft`$SystemCenter`$OpsMgrDB`$AppMonitoring_Log'
+SET @tblName = 'MT_Microsoft$SystemCenter$OpsMgrDB$AppMonitoring_Log'
 SET @colName = (SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tblName AND COLUMN_NAME LIKE 'Post_MainDatabaseServerName_%')
 
 SET @sqlstmt = N'INSERT INTO #tmp_DBMigration SELECT TOP(1) ''' + @tblName + ''' AS TableName, ' + @colName + ' AS OldValue, NULL AS NewValue FROM ' + @tblName
@@ -95,7 +95,7 @@ exec @UseOpsMgrDB @sqlstmt
 --
 --USE OperationsManager
 
-SET @tblName = 'MT_Microsoft`$SystemCenter`$DataWarehouse'
+SET @tblName = 'MT_Microsoft$SystemCenter$DataWarehouse'
 SET @colName = (SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tblName AND COLUMN_NAME LIKE 'MainDatabaseServerName_%')
 
 SET @sqlstmt = N'INSERT INTO #tmp_DBMigration SELECT TOP(1) ''' + @tblName + ''' AS TableName, ' + @colName + ' AS OldValue, NULL AS NewValue FROM ' + @tblName
@@ -109,7 +109,7 @@ SET @sqlstmt = N'UPDATE #tmp_DBMigration SET NewValue = (SELECT TOP(1) ' + @colN
 exec @UseOpsMgrDB @sqlstmt
 
 
-SET @tblName = 'MT_Microsoft`$SystemCenter`$DataWarehouse`$AppMonitoring'
+SET @tblName = 'MT_Microsoft$SystemCenter$DataWarehouse$AppMonitoring'
 SET @colName = (SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tblName AND COLUMN_NAME LIKE 'MainDatabaseServerName_%')
 
 SET @sqlstmt = N'INSERT INTO #tmp_DBMigration SELECT TOP(1) ''' + @tblName + ''' AS TableName, ' + @colName + ' AS OldValue, NULL AS NewValue FROM ' + @tblName
@@ -123,7 +123,7 @@ SET @sqlstmt = N'UPDATE #tmp_DBMigration SET NewValue = (SELECT TOP(1) ' + @colN
 exec @UseOpsMgrDB @sqlstmt
 
 
-SET @tblName = 'MT_Microsoft`$SystemCenter`$DataWarehouse`$AppMonitoring_Log'
+SET @tblName = 'MT_Microsoft$SystemCenter$DataWarehouse$AppMonitoring_Log'
 SET @colName = (SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tblName AND COLUMN_NAME LIKE 'Post_MainDatabaseServerName_%')
 
 SET @sqlstmt = N'INSERT INTO #tmp_DBMigration SELECT TOP(1) ''' + @tblName + ''' AS TableName, ' + @colName + ' AS OldValue, NULL AS NewValue FROM ' + @tblName
@@ -137,7 +137,7 @@ SET @sqlstmt = N'UPDATE TOP(1) #tmp_DBMigration SET NewValue = (SELECT ' + @colN
 exec @UseOpsMgrDB @sqlstmt
 
 
-SET @tblName = 'MT_Microsoft`$SystemCenter`$DataWarehouse_Log'
+SET @tblName = 'MT_Microsoft$SystemCenter$DataWarehouse_Log'
 SET @colName = (SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tblName AND COLUMN_NAME LIKE 'Post_MainDatabaseServerName_%')
 
 SET @sqlstmt = N'INSERT INTO #tmp_DBMigration SELECT TOP(1) ''' + @tblName + ''' AS TableName, ' + @colName + ' AS OldValue, NULL AS NewValue FROM ' + @tblName
@@ -151,7 +151,7 @@ SET @sqlstmt = N'UPDATE #tmp_DBMigration SET NewValue = (SELECT TOP(1) ' + @colN
 exec @UseOpsMgrDB @sqlstmt
 
 
-SET @tblName = 'MT_Microsoft`$SystemCenter`$OpsMgrDWWatcher'
+SET @tblName = 'MT_Microsoft$SystemCenter$OpsMgrDWWatcher'
 SET @colName = (SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tblName AND COLUMN_NAME LIKE 'DatabaseServerName_%')
 
 SET @sqlstmt = N'INSERT INTO #tmp_DBMigration SELECT TOP(1) ''' + @tblName + ''' AS TableName, ' + @colName + ' AS OldValue, NULL AS NewValue FROM ' + @tblName
@@ -164,7 +164,7 @@ exec @UseOpsMgrDB @sqlstmt
 SET @sqlstmt = N'UPDATE #tmp_DBMigration SET NewValue = (SELECT TOP(1) ' + @colName + ' FROM ' + @tblName + ') WHERE TableName = ''' + @tblName + ''''
 exec @UseOpsMgrDB @sqlstmt
 
-SET @tblName = 'MT_Microsoft`$SystemCenter`$OpsMgrDWWatcher_Log'
+SET @tblName = 'MT_Microsoft$SystemCenter$OpsMgrDWWatcher_Log'
 SET @colName = (SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tblName AND COLUMN_NAME LIKE 'Post_DatabaseServerName_%')
 
 SET @sqlstmt = N'INSERT INTO #tmp_DBMigration SELECT TOP(1) ''' + @tblName + ''' AS TableName, ' + @colName + ' AS OldValue, NULL AS NewValue FROM ' + @tblName
