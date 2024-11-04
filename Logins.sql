@@ -6,7 +6,7 @@ DECLARE @i int
 DECLARE @numrows int
 
 --logins & mapping
-create table #usernames (idx int IDENTITY(1,1), username varchar(25))
+create table #usernames (idx int IDENTITY(1,1), username varchar(35))
 INSERT INTO #usernames (username) values ('COMPANY\gMSA_SCOM_DWR$'),('COMPANY\gMSA_SCOM_DAS$'),('COMPANY\gMSA_SCOM_MSAA$'),('COMPANY\gMSA_SCOM_DWW$'),('COMPANY\gMSA_SQLSVC$')
 SET @i = 1
 SET @numrows = (SELECT COUNT(*) FROM #usernames)
@@ -52,7 +52,7 @@ SET @i = @i + 1
 END
 
 --just logins
-create table #logins (idx int IDENTITY(1,1), username varchar(25))
+create table #logins (idx int IDENTITY(1,1), username varchar(35))
 INSERT INTO #logins (username) values ('COMPANY\gMSA_SCOM_DWW$'),('COMPANY\gMSA_SQLSVC$')
 SET @i = 1
 SET @numrows = (SELECT COUNT(*) FROM #logins)
@@ -79,5 +79,5 @@ EXEC sp_executesql @sqlString, @sqlParams, @login;
 SET @i = @i + 1
 END
 
-
+drop table #usernames
 drop table #logins
